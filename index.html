@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>For Chan ❤️</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Floating hearts -->
+  <div id="hearts"></div>
+
+
+  <!-- =========================
+       WELCOME SCREEN
+  ========================== -->
+
+  <section id="welcome" class="welcome">
+
+    <div class="welcome-card">
+
+      <div class="big-heart">
+        ❤️
+      </div>
+
+      <p class="small-intro">
+        Hey Chan...
+      </p>
+
+      <h1>A Little Surprise</h1>
+
+      <p>
+        Carl made something special for you.
+      </p>
+
+      <button id="openBtn">
+        Open Your Surprise ❤️
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       MAIN WEBSITE
+  ========================== -->
+
+  <main id="mainContent" class="hidden">
+
+    <header>
+
+      <div class="header-heart">
+        ❤️
+      </div>
+
+      <h1>
+        For <span id="recipientHeader">Chan</span>
+      </h1>
+
+      <p>
+        A little corner made especially for you
+      </p>
+
+    </header>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <nav class="navigation">
+
+      <button class="nav-btn active" data-section="letter">
+        ❤️ Letter
+      </button>
+
+      <button class="nav-btn" data-section="music">
+        🎵 Music
+      </button>
+
+      <button class="nav-btn" data-section="notes">
+        📝 Notes
+      </button>
+
+      <button class="nav-btn" data-section="gallery">
+        🌹 Gallery
+      </button>
+
+      <button class="nav-btn" data-section="videos">
+        🎬 Videos
+      </button>
+
+    </nav>
+
+
+    <!-- =========================
+         MAIN CONTAINER
+    ========================== -->
+
+    <div class="container">
+
+
+      <!-- =========================
+           LETTER SECTION
+      ========================== -->
+
+      <section id="letter" class="content-section active">
+
+        <div class="section-title">
+
+          <span>💌</span>
+
+          <h2>A Letter For You</h2>
+
+        </div>
+
+
+        <div class="letter-preview" id="letterPreview">
+
+          <div class="envelope">
+
+            <span class="letter-icon">
+              💌
+            </span>
+
+            <h3>
+              Open This, Chan
+            </h3>
+
+            <p>
+              There's something Carl wanted to tell you...
+            </p>
+
+          </div>
+
+          <span class="open-text">
+            ✨ Tap to open
+          </span>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =========================
+           MUSIC SECTION
+      ========================== -->
+
+      <section id="music" class="content-section">
+
+        <div class="section-title">
+
+          <span>🎵</span>
+
+          <h2>Our Little Soundtrack</h2>
+
+        </div>
+
+
+        <div class="music-card">
+
+          <div class="vinyl">
+            🎵
+          </div>
+
+          <h3 id="songTitle">
+            A Little Song For You
+          </h3>
+
+          <p id="artistName">
+            From Carl ❤️
+          </p>
+
+
+          <audio id="audio">
+
+            <source
+              src="assets/song.mp3"
+              type="audio/mpeg">
+
+            Your browser does not support audio.
+
+          </audio>
+
+
+          <div class="progress-container">
+
+            <span id="currentTime">
+              0:00
+            </span>
+
+            <input
+              type="range"
+              id="progress"
+              value="0"
+              min="0"
+              max="100">
+
+            <span id="duration">
+              0:00
+            </span>
+
+          </div>
+
+
+          <button
+            id="playBtn"
+            class="play-button">
+
+            ▶
+
+          </button>
+
+
+          <p class="music-note">
+            🎶 Press play and enjoy the moment 🎶
+          </p>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =========================
+           NOTES SECTION
+      ========================== -->
+
+      <section id="notes" class="content-section">
+
+        <div class="section-title">
+
+          <span>📝</span>
+
+          <h2>Little Notes</h2>
+
+        </div>
+
+
+        <div class="notes-grid">
+
+
+          <div class="note-card">
+
+            <span>🌷</span>
+
+            <h3>
+              Things I Appreciate
+            </h3>
+
+            <p>
+              Your kindness, your personality,
+              your smile and all the little things
+              that make you who you are.
+            </p>
+
+          </div>
+
+
+          <div class="note-card">
+
+            <span>✨</span>
+
+            <h3>
+              A Little Reminder
+            </h3>
+
+            <p>
+              Never forget your worth.
+              Keep being yourself and keep
+              chasing the things that make you happy.
+            </p>
+
+          </div>
+
+
+          <div class="note-card">
+
+            <span>💭</span>
+
+            <h3>
+              Favorite Memories
+            </h3>
+
+            <p>
+              Some moments may seem small,
+              but they can become memories
+              worth keeping forever.
+            </p>
+
+          </div>
+
+
+          <div class="note-card">
+
+            <span>❤️</span>
+
+            <h3>
+              From Carl
+            </h3>
+
+            <p>
+              I made this little place so you
+              could have something to look back
+              on whenever you want.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =========================
+           GALLERY SECTION
+      ========================== -->
+
+      <section id="gallery" class="content-section">
+
+        <div class="section-title">
+
+          <span>🌹</span>
+
+          <h2>Beautiful Memories</h2>
+
+        </div>
+
+
+        <div class="gallery-grid">
+
+
+          <div class="gallery-item">
+
+            <img
+              src="assets/photos/photo1.jpg"
+              alt="Memory 1">
+
+          </div>
+
+
+          <div class="gallery-item">
+
+            <img
+              src="assets/photos/photo2.jpg"
+              alt="Memory 2">
+
+          </div>
+
+
+          <div class="gallery-item">
+
+            <img
+              src="assets/photos/photo3.jpg"
+              alt="Memory 3">
+
+          </div>
+
+
+          <div class="gallery-item">
+
+            <img
+              src="assets/photos/photo4.jpg"
+              alt="Memory 4">
+
+          </div>
+
+
+        </div>
+
+
+        <p class="gallery-hint">
+          Tap a picture to view it ❤️
+        </p>
+
+      </section>
+
+
+
+      <!-- =========================
+           VIDEOS SECTION
+      ========================== -->
+
+      <section id="videos" class="content-section">
+
+        <div class="section-title">
+
+          <span>🎬</span>
+
+          <h2>Our Little Moments</h2>
+
+        </div>
+
+
+        <div class="videos-grid">
+
+
+          <div class="video-card">
+
+            <video
+              controls
+              playsinline
+              preload="metadata">
+
+              <source
+                src="assets/videos/memory1.mp4"
+                type="video/mp4">
+
+              Your browser does not support video.
+
+            </video>
+
+            <h3>
+              Memory One ❤️
+            </h3>
+
+            <p>
+              A little moment worth remembering.
+            </p>
+
+          </div>
+
+
+
+          <div class="video-card">
+
+            <video
+              controls
+              playsinline
+              preload="metadata">
+
+              <source
+                src="assets/videos/memory2.mp4"
+                type="video/mp4">
+
+              Your browser does not support video.
+
+            </video>
+
+            <h3>
+              Memory Two 🌸
+            </h3>
+
+            <p>
+              Another little memory for Chan.
+            </p>
+
+          </div>
+
+
+
+          <div class="video-card">
+
+            <video
+              controls
+              playsinline
+              preload="metadata">
+
+              <source
+                src="assets/videos/memory3.mp4"
+                type="video/mp4">
+
+              Your browser does not support video.
+
+            </video>
+
+            <h3>
+              Memory Three ✨
+            </h3>
+
+            <p>
+              Something special from Carl.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </section>
+
+
+    </div>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+      Made with ❤️ by Carl for
+      <span id="recipientFooter">
+        Chan
+      </span>
+
+    </footer>
+
+  </main>
+
+
+
+  <!-- =========================
+       LETTER MODAL
+  ========================== -->
+
+  <div id="letterModal" class="modal">
+
+    <div class="letter-paper">
+
+      <button
+        class="close-btn"
+        id="closeLetter">
+
+        ×
+
+      </button>
+
+
+      <div class="paper-heart">
+        ❤️
+      </div>
+
+
+      <h2>
+        Dear <span id="recipientName">
+          Chan
+        </span>,
+      </h2>
+
+
+      <div
+        id="letterText"
+        class="letter-text">
+      </div>
+
+
+      <p class="signature">
+
+        With love,<br>
+
+        <strong id="senderName">
+          Carl
+        </strong>
+
+        ❤️
+
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =========================
+       IMAGE VIEWER
+  ========================== -->
+
+  <div
+    id="imageModal"
+    class="image-modal">
+
+    <button
+      id="closeImage"
+      class="close-image">
+
+      ×
+
+    </button>
+
+
+    <img
+      id="largeImage"
+      src=""
+      alt="Memory">
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
