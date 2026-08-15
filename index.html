@@ -1,31 +1,1244 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>For Chan ❤️</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap"
-    rel="stylesheet">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <link rel="stylesheet" href="style.css">
+    :root {
+      --pink: #f58ca8;
+      --dark-pink: #c94d70;
+      --light-pink: #ffe4ec;
+      --text: #4b3038;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+
+      background:
+        radial-gradient(
+          circle at top left,
+          #ffd9e4,
+          transparent 35%
+        ),
+        linear-gradient(
+          135deg,
+          #f7a9bd,
+          #ffdce6
+        );
+    }
+
+
+    /* =================================
+       FLOATING HEARTS
+    ================================= */
+
+    #hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -40px;
+      animation: floatHeart linear forwards;
+      opacity: .7;
+    }
+
+    @keyframes floatHeart {
+
+      0% {
+        transform:
+          translateY(0)
+          rotate(0deg);
+        opacity: 0;
+      }
+
+      15% {
+        opacity: .7;
+      }
+
+      100% {
+        transform:
+          translateY(-110vh)
+          rotate(360deg);
+        opacity: 0;
+      }
+
+    }
+
+
+    /* =================================
+       WELCOME SCREEN
+    ================================= */
+
+    .welcome {
+      min-height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 20px;
+
+      position: relative;
+      z-index: 2;
+
+      transition: .6s;
+    }
+
+    .welcome-card {
+
+      width: min(500px, 100%);
+
+      padding: 55px 30px;
+
+      text-align: center;
+
+      background:
+        rgba(255,255,255,.93);
+
+      border-radius: 30px;
+
+      box-shadow:
+        0 25px 70px
+        rgba(100,30,50,.22);
+
+      animation:
+        appear 1s ease;
+
+    }
+
+    .big-heart {
+
+      font-size: 80px;
+
+      animation:
+        heartbeat 1.5s infinite;
+
+    }
+
+    .welcome-card .small {
+
+      color: #9a5c6c;
+
+      margin-top: 10px;
+
+    }
+
+    .welcome-card h1 {
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-style: italic;
+
+      font-size: 48px;
+
+      color:
+        var(--dark-pink);
+
+      margin: 12px 0;
+
+    }
+
+    .welcome-card p {
+
+      color: #76545e;
+
+      margin-bottom: 25px;
+
+      line-height: 1.7;
+
+    }
+
+    #openBtn {
+
+      border: none;
+
+      padding:
+        15px 28px;
+
+      border-radius: 50px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #e95c83,
+          #c94067
+        );
+
+      color: white;
+
+      font-size: 15px;
+
+      font-weight: bold;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 10px 25px
+        rgba(190,50,90,.3);
+
+      transition: .3s;
+
+    }
+
+    #openBtn:hover {
+
+      transform:
+        translateY(-3px)
+        scale(1.03);
+
+    }
+
+
+    /* =================================
+       MAIN
+    ================================= */
+
+    .hidden {
+      display: none;
+    }
+
+    main {
+
+      width:
+        min(1100px, 94%);
+
+      margin:
+        30px auto;
+
+      position: relative;
+
+      z-index: 1;
+
+      animation:
+        appear 1s ease;
+
+    }
+
+    header {
+
+      text-align: center;
+
+      margin-bottom: 25px;
+
+    }
+
+    .header-heart {
+
+      font-size: 35px;
+
+      animation:
+        heartbeat 2s infinite;
+
+    }
+
+    header h1 {
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-style: italic;
+
+      font-size:
+        clamp(42px, 8vw, 65px);
+
+      color: #8e3654;
+
+    }
+
+    header h1 span {
+
+      color: #c84669;
+
+    }
+
+    header p {
+
+      color: #704f59;
+
+      margin-top: 5px;
+
+    }
+
+
+    /* =================================
+       NAVIGATION
+    ================================= */
+
+    .navigation {
+
+      display: flex;
+
+      justify-content: center;
+
+      gap: 10px;
+
+      flex-wrap: wrap;
+
+      margin-bottom: 20px;
+
+    }
+
+    .nav-btn {
+
+      border: none;
+
+      background:
+        rgba(255,255,255,.88);
+
+      color: #9b405b;
+
+      padding:
+        12px 17px;
+
+      border-radius: 30px;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 5px 15px
+        rgba(90,30,50,.12);
+
+      transition: .3s;
+
+    }
+
+    .nav-btn:hover,
+    .nav-btn.active {
+
+      background: white;
+
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 8px 20px
+        rgba(90,30,50,.18);
+
+    }
+
+
+    /* =================================
+       CONTAINER
+    ================================= */
+
+    .container {
+
+      background:
+        rgba(255,255,255,.94);
+
+      border-radius: 25px;
+
+      padding:
+        clamp(20px,5vw,45px);
+
+      min-height: 500px;
+
+      box-shadow:
+        0 20px 60px
+        rgba(90,30,50,.15);
+
+    }
+
+    .content-section {
+
+      display: none;
+
+      animation:
+        sectionIn .5s ease;
+
+    }
+
+    .content-section.active {
+
+      display: block;
+
+    }
+
+    .section-title {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      margin-bottom: 25px;
+
+    }
+
+    .section-title span {
+
+      font-size: 30px;
+
+    }
+
+    .section-title h2 {
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-style: italic;
+
+      color: #9c3e5a;
+
+      font-size: 36px;
+
+    }
+
+
+    /* =================================
+       LETTER
+    ================================= */
+
+    .letter-preview {
+
+      position: relative;
+
+      min-height: 230px;
+
+      padding: 40px;
+
+      border:
+        2px dashed
+        #e9a5b7;
+
+      border-radius: 18px;
+
+      background:
+        linear-gradient(
+          rgba(255,255,255,.8),
+          rgba(255,244,248,.9)
+        );
+
+      cursor: pointer;
+
+      transition: .4s;
+
+    }
+
+    .letter-preview:hover {
+
+      transform:
+        translateY(-5px);
+
+      box-shadow:
+        0 15px 30px
+        rgba(150,50,80,.12);
+
+    }
+
+    .letter-icon {
+
+      font-size: 45px;
+
+    }
+
+    .letter-preview h3 {
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-style: italic;
+
+      font-size: 32px;
+
+      color: #b34363;
+
+      margin: 10px 0;
+
+    }
+
+    .letter-preview p {
+
+      color: #735761;
+
+      line-height: 1.7;
+
+    }
+
+    .open-text {
+
+      position: absolute;
+
+      right: 20px;
+
+      bottom: 15px;
+
+      font-size: 13px;
+
+      color: #b65a72;
+
+    }
+
+
+    /* =================================
+       LETTER MODAL
+    ================================= */
+
+    .modal,
+    .image-modal {
+
+      position: fixed;
+
+      inset: 0;
+
+      background:
+        rgba(35,10,20,.75);
+
+      display: none;
+
+      justify-content: center;
+
+      align-items: center;
+
+      padding: 20px;
+
+      z-index: 100;
+
+    }
+
+    .modal.show,
+    .image-modal.show {
+
+      display: flex;
+
+    }
+
+    .letter-paper {
+
+      position: relative;
+
+      width:
+        min(650px,100%);
+
+      max-height: 90vh;
+
+      overflow-y: auto;
+
+      padding:
+        45px 35px;
+
+      background:
+        repeating-linear-gradient(
+          transparent,
+          transparent 31px,
+          #eadce0 32px
+        ),
+        #fffdf7;
+
+      border-radius: 10px;
+
+      box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.35);
+
+      animation:
+        letterOpen .6s ease;
+
+    }
+
+    .paper-heart {
+
+      text-align: center;
+
+      font-size: 45px;
+
+    }
+
+    .letter-paper h2 {
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-style: italic;
+
+      font-size: 34px;
+
+      color: #a23d5b;
+
+      margin-bottom: 20px;
+
+    }
+
+    .letter-text {
+
+      line-height: 2;
+
+      white-space: pre-line;
+
+      font-size: 16px;
+
+    }
+
+    .signature {
+
+      margin-top: 30px;
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-style: italic;
+
+      font-size: 25px;
+
+      color: #a23d5b;
+
+    }
+
+    .close-btn,
+    .close-image {
+
+      position: absolute;
+
+      top: 12px;
+
+      right: 15px;
+
+      width: 40px;
+
+      height: 40px;
+
+      border-radius: 50%;
+
+      border: none;
+
+      background: #f5c3d0;
+
+      color: #8c3851;
+
+      font-size: 25px;
+
+      cursor: pointer;
+
+    }
+
+
+    /* =================================
+       MUSIC
+    ================================= */
+
+    .music-card {
+
+      text-align: center;
+
+      max-width: 600px;
+
+      margin: auto;
+
+      padding: 45px 25px;
+
+      border-radius: 25px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffe4ec,
+          #fff
+        );
+
+      box-shadow:
+        0 15px 35px
+        rgba(120,40,70,.12);
+
+    }
+
+    .vinyl {
+
+      width: 120px;
+
+      height: 120px;
+
+      margin:
+        0 auto 25px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          #f1b3c4 0 8%,
+          #3d2730 9% 60%,
+          #20171b 61%
+        );
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      color: white;
+
+      font-size: 30px;
+
+      animation:
+        spin 5s linear infinite;
+
+      animation-play-state:
+        paused;
+
+    }
+
+    .music-card.playing
+    .vinyl {
+
+      animation-play-state:
+        running;
+
+    }
+
+    .music-card h3 {
+
+      font-size: 22px;
+
+    }
+
+    .music-card p {
+
+      color: #88636d;
+
+    }
+
+    .progress-container {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      margin: 25px 0;
+
+    }
+
+    #progress {
+
+      flex: 1;
+
+      accent-color:
+        #d9587b;
+
+      cursor: pointer;
+
+    }
+
+    .play-button {
+
+      width: 65px;
+
+      height: 65px;
+
+      border-radius: 50%;
+
+      border: none;
+
+      background:
+        #d9577a;
+
+      color: white;
+
+      font-size: 25px;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 8px 20px
+        rgba(210,70,110,.3);
+
+    }
+
+
+    /* =================================
+       NOTES
+    ================================= */
+
+    .notes-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(220px,1fr)
+        );
+
+      gap: 20px;
+
+    }
+
+    .note-card {
+
+      padding: 25px;
+
+      border-radius: 20px;
+
+      background: #fff7fa;
+
+      border:
+        1px solid
+        #f4ccd7;
+
+      transition: .3s;
+
+    }
+
+    .note-card:hover {
+
+      transform:
+        translateY(-7px)
+        rotate(-1deg);
+
+      box-shadow:
+        0 15px 25px
+        rgba(130,50,70,.12);
+
+    }
+
+    .note-card span {
+
+      font-size: 35px;
+
+    }
+
+    .note-card h3 {
+
+      color: #a3405d;
+
+      margin: 10px 0;
+
+    }
+
+    .note-card p {
+
+      line-height: 1.7;
+
+      color: #735761;
+
+    }
+
+
+    /* =================================
+       GALLERY
+    ================================= */
+
+    .gallery-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(180px,1fr)
+        );
+
+      gap: 18px;
+
+    }
+
+    .gallery-item {
+
+      aspect-ratio: 1;
+
+      overflow: hidden;
+
+      border-radius: 18px;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 8px 20px
+        rgba(100,30,50,.12);
+
+      background: #f8d9e2;
+
+    }
+
+    .gallery-item img {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: .5s;
+
+    }
+
+    .gallery-item:hover img {
+
+      transform:
+        scale(1.08);
+
+    }
+
+    .gallery-hint {
+
+      text-align: center;
+
+      margin-top: 20px;
+
+      color: #95606d;
+
+    }
+
+
+    /* =================================
+       VIDEO
+    ================================= */
+
+    .videos-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(260px,1fr)
+        );
+
+      gap: 25px;
+
+    }
+
+    .video-card {
+
+      background: #fff7fa;
+
+      border:
+        1px solid
+        #f4ccd7;
+
+      border-radius: 20px;
+
+      padding: 15px;
+
+      overflow: hidden;
+
+      transition: .3s;
+
+    }
+
+    .video-card:hover {
+
+      transform:
+        translateY(-5px);
+
+      box-shadow:
+        0 15px 30px
+        rgba(130,50,70,.12);
+
+    }
+
+    .video-card video {
+
+      width: 100%;
+
+      display: block;
+
+      aspect-ratio: 16 / 9;
+
+      object-fit: cover;
+
+      border-radius: 14px;
+
+      background: #24171c;
+
+    }
+
+    .video-card h3 {
+
+      color: #a3405d;
+
+      margin:
+        15px 5px 5px;
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-style: italic;
+
+      font-size: 24px;
+
+    }
+
+    .video-card p {
+
+      color: #735761;
+
+      margin:
+        0 5px 8px;
+
+      font-size: 14px;
+
+    }
+
+
+    /* =================================
+       IMAGE VIEWER
+    ================================= */
+
+    .image-modal img {
+
+      max-width: 90%;
+
+      max-height: 85vh;
+
+      border-radius: 15px;
+
+      box-shadow:
+        0 20px 60px black;
+
+    }
+
+
+    /* =================================
+       FOOTER
+    ================================= */
+
+    footer {
+
+      text-align: center;
+
+      padding: 25px;
+
+      color: #805866;
+
+    }
+
+
+    /* =================================
+       ANIMATIONS
+    ================================= */
+
+    @keyframes appear {
+
+      from {
+
+        opacity: 0;
+
+        transform:
+          translateY(20px);
+
+      }
+
+      to {
+
+        opacity: 1;
+
+        transform:
+          translateY(0);
+
+      }
+
+    }
+
+    @keyframes sectionIn {
+
+      from {
+
+        opacity: 0;
+
+        transform:
+          translateY(15px);
+
+      }
+
+      to {
+
+        opacity: 1;
+
+        transform:
+          translateY(0);
+
+      }
+
+    }
+
+    @keyframes letterOpen {
+
+      from {
+
+        opacity: 0;
+
+        transform:
+          scale(.85)
+          rotate(-2deg);
+
+      }
+
+      to {
+
+        opacity: 1;
+
+        transform:
+          scale(1)
+          rotate(0);
+
+      }
+
+    }
+
+    @keyframes heartbeat {
+
+      0%,100% {
+
+        transform:
+          scale(1);
+
+      }
+
+      50% {
+
+        transform:
+          scale(1.15);
+
+      }
+
+    }
+
+    @keyframes spin {
+
+      to {
+
+        transform:
+          rotate(360deg);
+
+      }
+
+    }
+
+
+    /* =================================
+       MOBILE
+    ================================= */
+
+    @media(max-width:600px) {
+
+      .welcome-card {
+
+        padding:
+          40px 20px;
+
+      }
+
+      .welcome-card h1 {
+
+        font-size: 40px;
+
+      }
+
+      .navigation {
+
+        gap: 7px;
+
+      }
+
+      .nav-btn {
+
+        padding:
+          10px 12px;
+
+        font-size: 12px;
+
+      }
+
+      .container {
+
+        padding:
+          20px 15px;
+
+      }
+
+      .letter-preview {
+
+        padding:
+          25px 20px;
+
+      }
+
+      .open-text {
+
+        position: static;
+
+        display: block;
+
+        margin-top: 20px;
+
+      }
+
+      .letter-paper {
+
+        padding:
+          40px 22px;
+
+      }
+
+      .letter-text {
+
+        font-size: 14px;
+
+        line-height: 1.9;
+
+      }
+
+      .videos-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+    }
+
+  </style>
+
 </head>
+
 
 <body>
 
-  <!-- Floating hearts -->
+
+  <!-- =================================
+       FLOATING HEARTS
+  ================================= -->
+
   <div id="hearts"></div>
 
 
-  <!-- =========================
-       WELCOME SCREEN
-  ========================== -->
+  <!-- =================================
+       WELCOME
+  ================================= -->
 
   <section id="welcome" class="welcome">
 
@@ -35,11 +1248,13 @@
         ❤️
       </div>
 
-      <p class="small-intro">
+      <p class="small">
         Hey Chan...
       </p>
 
-      <h1>A Little Surprise</h1>
+      <h1>
+        A Little Surprise
+      </h1>
 
       <p>
         Carl made something special for you.
@@ -54,11 +1269,15 @@
   </section>
 
 
-  <!-- =========================
-       MAIN WEBSITE
-  ========================== -->
 
-  <main id="mainContent" class="hidden">
+  <!-- =================================
+       MAIN WEBSITE
+  ================================= -->
+
+  <main
+    id="mainContent"
+    class="hidden">
+
 
     <header>
 
@@ -67,7 +1286,9 @@
       </div>
 
       <h1>
-        For <span id="recipientHeader">Chan</span>
+        For <span id="recipientHeader">
+          Chan
+        </span>
       </h1>
 
       <p>
@@ -77,60 +1298,90 @@
     </header>
 
 
-    <!-- =========================
+
+    <!-- =================================
          NAVIGATION
-    ========================== -->
+    ================================= -->
 
     <nav class="navigation">
 
-      <button class="nav-btn active" data-section="letter">
+      <button
+        class="nav-btn active"
+        data-section="letter">
+
         ❤️ Letter
+
       </button>
 
-      <button class="nav-btn" data-section="music">
+      <button
+        class="nav-btn"
+        data-section="music">
+
         🎵 Music
+
       </button>
 
-      <button class="nav-btn" data-section="notes">
+      <button
+        class="nav-btn"
+        data-section="notes">
+
         📝 Notes
+
       </button>
 
-      <button class="nav-btn" data-section="gallery">
+      <button
+        class="nav-btn"
+        data-section="gallery">
+
         🌹 Gallery
+
       </button>
 
-      <button class="nav-btn" data-section="videos">
+      <button
+        class="nav-btn"
+        data-section="videos">
+
         🎬 Videos
+
       </button>
 
     </nav>
 
 
-    <!-- =========================
-         MAIN CONTAINER
-    ========================== -->
+
+    <!-- =================================
+         CONTENT
+    ================================= -->
 
     <div class="container">
 
 
-      <!-- =========================
-           LETTER SECTION
-      ========================== -->
+      <!-- LETTER -->
 
-      <section id="letter" class="content-section active">
+      <section
+        id="letter"
+        class="content-section active">
+
 
         <div class="section-title">
 
-          <span>💌</span>
+          <span>
+            💌
+          </span>
 
-          <h2>A Letter For You</h2>
+          <h2>
+            A Letter For You
+          </h2>
 
         </div>
 
 
-        <div class="letter-preview" id="letterPreview">
+        <div
+          class="letter-preview"
+          id="letterPreview">
 
-          <div class="envelope">
+
+          <div>
 
             <span class="letter-icon">
               💌
@@ -141,67 +1392,83 @@
             </h3>
 
             <p>
-              There's something Carl wanted to tell you...
+              There's something Carl wanted
+              to tell you...
             </p>
 
           </div>
+
 
           <span class="open-text">
             ✨ Tap to open
           </span>
 
+
         </div>
+
 
       </section>
 
 
 
-      <!-- =========================
-           MUSIC SECTION
-      ========================== -->
+      <!-- MUSIC -->
 
-      <section id="music" class="content-section">
+      <section
+        id="music"
+        class="content-section">
+
 
         <div class="section-title">
 
-          <span>🎵</span>
+          <span>
+            🎵
+          </span>
 
-          <h2>Our Little Soundtrack</h2>
+          <h2>
+            Our Little Soundtrack
+          </h2>
 
         </div>
 
 
         <div class="music-card">
 
+
           <div class="vinyl">
             🎵
           </div>
 
+
           <h3 id="songTitle">
             A Little Song For You
           </h3>
+
 
           <p id="artistName">
             From Carl ❤️
           </p>
 
 
-          <audio id="audio">
+          <audio
+            id="audio">
 
             <source
               src="assets/song.mp3"
               type="audio/mpeg">
 
-            Your browser does not support audio.
+            Your browser does not
+            support audio.
 
           </audio>
 
 
-          <div class="progress-container">
+          <div
+            class="progress-container">
 
             <span id="currentTime">
               0:00
             </span>
+
 
             <input
               type="range"
@@ -209,6 +1476,7 @@
               value="0"
               min="0"
               max="100">
+
 
             <span id="duration">
               0:00
@@ -226,9 +1494,11 @@
           </button>
 
 
-          <p class="music-note">
-            🎶 Press play and enjoy the moment 🎶
+          <p>
+            🎶 Press play and enjoy
+            the moment 🎶
           </p>
+
 
         </div>
 
@@ -236,17 +1506,22 @@
 
 
 
-      <!-- =========================
-           NOTES SECTION
-      ========================== -->
+      <!-- NOTES -->
 
-      <section id="notes" class="content-section">
+      <section
+        id="notes"
+        class="content-section">
+
 
         <div class="section-title">
 
-          <span>📝</span>
+          <span>
+            📝
+          </span>
 
-          <h2>Little Notes</h2>
+          <h2>
+            Little Notes
+          </h2>
 
         </div>
 
@@ -256,7 +1531,9 @@
 
           <div class="note-card">
 
-            <span>🌷</span>
+            <span>
+              🌷
+            </span>
 
             <h3>
               Things I Appreciate
@@ -273,7 +1550,9 @@
 
           <div class="note-card">
 
-            <span>✨</span>
+            <span>
+              ✨
+            </span>
 
             <h3>
               A Little Reminder
@@ -290,7 +1569,9 @@
 
           <div class="note-card">
 
-            <span>💭</span>
+            <span>
+              💭
+            </span>
 
             <h3>
               Favorite Memories
@@ -299,7 +1580,7 @@
             <p>
               Some moments may seem small,
               but they can become memories
-              worth keeping forever.
+              worth keeping.
             </p>
 
           </div>
@@ -307,7 +1588,9 @@
 
           <div class="note-card">
 
-            <span>❤️</span>
+            <span>
+              ❤️
+            </span>
 
             <h3>
               From Carl
@@ -328,17 +1611,22 @@
 
 
 
-      <!-- =========================
-           GALLERY SECTION
-      ========================== -->
+      <!-- GALLERY -->
 
-      <section id="gallery" class="content-section">
+      <section
+        id="gallery"
+        class="content-section">
+
 
         <div class="section-title">
 
-          <span>🌹</span>
+          <span>
+            🌹
+          </span>
 
-          <h2>Beautiful Memories</h2>
+          <h2>
+            Beautiful Memories
+          </h2>
 
         </div>
 
@@ -389,21 +1677,27 @@
           Tap a picture to view it ❤️
         </p>
 
+
       </section>
 
 
 
-      <!-- =========================
-           VIDEOS SECTION
-      ========================== -->
+      <!-- VIDEOS -->
 
-      <section id="videos" class="content-section">
+      <section
+        id="videos"
+        class="content-section">
+
 
         <div class="section-title">
 
-          <span>🎬</span>
+          <span>
+            🎬
+          </span>
 
-          <h2>Our Little Moments</h2>
+          <h2>
+            Our Little Moments
+          </h2>
 
         </div>
 
@@ -422,9 +1716,11 @@
                 src="assets/videos/memory1.mp4"
                 type="video/mp4">
 
-              Your browser does not support video.
+              Your browser does not
+              support video.
 
             </video>
+
 
             <h3>
               Memory One ❤️
@@ -449,9 +1745,11 @@
                 src="assets/videos/memory2.mp4"
                 type="video/mp4">
 
-              Your browser does not support video.
+              Your browser does not
+              support video.
 
             </video>
+
 
             <h3>
               Memory Two 🌸
@@ -476,9 +1774,11 @@
                 src="assets/videos/memory3.mp4"
                 type="video/mp4">
 
-              Your browser does not support video.
+              Your browser does not
+              support video.
 
             </video>
+
 
             <h3>
               Memory Three ✨
@@ -499,9 +1799,8 @@
     </div>
 
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
+
+    <!-- FOOTER -->
 
     <footer>
 
@@ -512,17 +1811,22 @@
 
     </footer>
 
+
   </main>
 
 
 
-  <!-- =========================
-       LETTER MODAL
-  ========================== -->
+  <!-- =================================
+       LETTER POPUP
+  ================================= -->
 
-  <div id="letterModal" class="modal">
+  <div
+    id="letterModal"
+    class="modal">
+
 
     <div class="letter-paper">
+
 
       <button
         class="close-btn"
@@ -539,9 +1843,12 @@
 
 
       <h2>
-        Dear <span id="recipientName">
+
+        Dear
+        <span id="recipientName">
           Chan
         </span>,
+
       </h2>
 
 
@@ -553,7 +1860,7 @@
 
       <p class="signature">
 
-        With love,<br>
+        From,<br>
 
         <strong id="senderName">
           Carl
@@ -563,19 +1870,22 @@
 
       </p>
 
+
     </div>
+
 
   </div>
 
 
 
-  <!-- =========================
+  <!-- =================================
        IMAGE VIEWER
-  ========================== -->
+  ================================= -->
 
   <div
     id="imageModal"
     class="image-modal">
+
 
     <button
       id="closeImage"
@@ -591,11 +1901,734 @@
       src=""
       alt="Memory">
 
+
   </div>
 
 
-  <script src="script.js"></script>
+
+  <!-- =================================
+       JAVASCRIPT
+  ================================= -->
+
+  <script>
+
+
+    /* ==============================
+       PERSONAL INFORMATION
+    ============================== */
+
+    const config = {
+
+      recipientName: "Chan",
+
+      senderName: "Carl",
+
+      songTitle:
+        "A Little Song For You",
+
+      artistName:
+        "From Carl ❤️",
+
+      letter: `
+Dear Chan,
+
+I wanted to make something a little different for you.
+
+Sometimes the simplest things can mean the most,
+and this little website is my way of putting a few
+words together that I wanted you to see.
+
+Thank you for the conversations, the laughs,
+the memories, and all the little moments we've shared.
+
+I hope this brings a smile to your face whenever
+you open it.
+
+No matter where life takes us, I hope you always
+remember to keep being yourself, keep smiling,
+and keep chasing the things that make you happy.
+
+This little surprise was made especially for you.
+
+— Carl ❤️
+      `
+
+    };
+
+
+    /* ==============================
+       PERSONALIZE WEBSITE
+    ============================== */
+
+    document.getElementById(
+      "recipientHeader"
+    ).textContent =
+      config.recipientName;
+
+
+    document.getElementById(
+      "recipientName"
+    ).textContent =
+      config.recipientName;
+
+
+    document.getElementById(
+      "recipientFooter"
+    ).textContent =
+      config.recipientName;
+
+
+    document.getElementById(
+      "senderName"
+    ).textContent =
+      config.senderName;
+
+
+    document.getElementById(
+      "songTitle"
+    ).textContent =
+      config.songTitle;
+
+
+    document.getElementById(
+      "artistName"
+    ).textContent =
+      config.artistName;
+
+
+
+    /* ==============================
+       OPEN WEBSITE
+    ============================== */
+
+    const openBtn =
+      document.getElementById(
+        "openBtn"
+      );
+
+
+    const welcome =
+      document.getElementById(
+        "welcome"
+      );
+
+
+    const mainContent =
+      document.getElementById(
+        "mainContent"
+      );
+
+
+    openBtn.addEventListener(
+      "click",
+      () => {
+
+        welcome.style.opacity =
+          "0";
+
+        welcome.style.transform =
+          "scale(.95)";
+
+
+        setTimeout(
+          () => {
+
+            welcome.style.display =
+              "none";
+
+            mainContent.classList
+              .remove("hidden");
+
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+
+          },
+          600
+        );
+
+      }
+    );
+
+
+
+    /* ==============================
+       NAVIGATION
+    ============================== */
+
+    const navButtons =
+      document.querySelectorAll(
+        ".nav-btn"
+      );
+
+
+    const sections =
+      document.querySelectorAll(
+        ".content-section"
+      );
+
+
+    navButtons.forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            const target =
+              button.dataset.section;
+
+
+            navButtons.forEach(
+              btn => {
+
+                btn.classList
+                  .remove("active");
+
+              }
+            );
+
+
+            button.classList
+              .add("active");
+
+
+            sections.forEach(
+              section => {
+
+                section.classList
+                  .remove("active");
+
+              }
+            );
+
+
+            const selected =
+              document.getElementById(
+                target
+              );
+
+
+            if (selected) {
+
+              selected.classList
+                .add("active");
+
+            }
+
+          }
+        );
+
+      }
+    );
+
+
+
+    /* ==============================
+       LOVE LETTER
+    ============================== */
+
+    const letterPreview =
+      document.getElementById(
+        "letterPreview"
+      );
+
+
+    const letterModal =
+      document.getElementById(
+        "letterModal"
+      );
+
+
+    const closeLetter =
+      document.getElementById(
+        "closeLetter"
+      );
+
+
+    const letterText =
+      document.getElementById(
+        "letterText"
+      );
+
+
+    let typingTimer;
+
+
+    letterPreview.addEventListener(
+      "click",
+      () => {
+
+        letterModal.classList
+          .add("show");
+
+        typeLetter();
+
+      }
+    );
+
+
+    closeLetter.addEventListener(
+      "click",
+      () => {
+
+        letterModal.classList
+          .remove("show");
+
+      }
+    );
+
+
+    letterModal.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target ===
+          letterModal
+        ) {
+
+          letterModal.classList
+            .remove("show");
+
+        }
+
+      }
+    );
+
+
+    function typeLetter() {
+
+      clearTimeout(typingTimer);
+
+      letterText.textContent =
+        "";
+
+      let index = 0;
+
+      const text =
+        config.letter;
+
+
+      function type() {
+
+        if (
+          index <
+          text.length
+        ) {
+
+          letterText.textContent +=
+            text.charAt(index);
+
+          index++;
+
+
+          typingTimer =
+            setTimeout(
+              type,
+              18
+            );
+
+        }
+
+      }
+
+
+      type();
+
+    }
+
+
+
+    /* ==============================
+       MUSIC PLAYER
+    ============================== */
+
+    const audio =
+      document.getElementById(
+        "audio"
+      );
+
+
+    const playBtn =
+      document.getElementById(
+        "playBtn"
+      );
+
+
+    const progress =
+      document.getElementById(
+        "progress"
+      );
+
+
+    const currentTime =
+      document.getElementById(
+        "currentTime"
+      );
+
+
+    const duration =
+      document.getElementById(
+        "duration"
+      );
+
+
+    const musicCard =
+      document.querySelector(
+        ".music-card"
+      );
+
+
+    playBtn.addEventListener(
+      "click",
+      () => {
+
+        if (
+          audio.paused
+        ) {
+
+          audio.play()
+            .then(
+              () => {
+
+                playBtn.textContent =
+                  "⏸";
+
+                musicCard.classList
+                  .add("playing");
+
+              }
+            )
+            .catch(
+              () => {
+
+                alert(
+                  "Upload your song as assets/song.mp3 first."
+                );
+
+              }
+            );
+
+        }
+
+        else {
+
+          audio.pause();
+
+          playBtn.textContent =
+            "▶";
+
+          musicCard.classList
+            .remove("playing");
+
+        }
+
+      }
+    );
+
+
+    audio.addEventListener(
+      "loadedmetadata",
+      () => {
+
+        progress.max =
+          audio.duration;
+
+        duration.textContent =
+          formatTime(
+            audio.duration
+          );
+
+      }
+    );
+
+
+    audio.addEventListener(
+      "timeupdate",
+      () => {
+
+        progress.value =
+          audio.currentTime;
+
+        currentTime.textContent =
+          formatTime(
+            audio.currentTime
+          );
+
+      }
+    );
+
+
+    progress.addEventListener(
+      "input",
+      () => {
+
+        audio.currentTime =
+          progress.value;
+
+      }
+    );
+
+
+    audio.addEventListener(
+      "ended",
+      () => {
+
+        playBtn.textContent =
+          "▶";
+
+        musicCard.classList
+          .remove("playing");
+
+      }
+    );
+
+
+    function formatTime(seconds) {
+
+      if (
+        isNaN(seconds)
+      ) {
+
+        return "0:00";
+
+      }
+
+
+      const minutes =
+        Math.floor(
+          seconds / 60
+        );
+
+
+      const secondsPart =
+        Math.floor(
+          seconds % 60
+        )
+        .toString()
+        .padStart(
+          2,
+          "0"
+        );
+
+
+      return (
+        minutes +
+        ":" +
+        secondsPart
+      );
+
+    }
+
+
+
+    /* ==============================
+       PHOTO GALLERY
+    ============================== */
+
+    const galleryImages =
+      document.querySelectorAll(
+        ".gallery-item img"
+      );
+
+
+    const imageModal =
+      document.getElementById(
+        "imageModal"
+      );
+
+
+    const largeImage =
+      document.getElementById(
+        "largeImage"
+      );
+
+
+    const closeImage =
+      document.getElementById(
+        "closeImage"
+      );
+
+
+    galleryImages.forEach(
+      image => {
+
+        image.addEventListener(
+          "click",
+          () => {
+
+            largeImage.src =
+              image.src;
+
+            imageModal.classList
+              .add("show");
+
+          }
+        );
+
+      }
+    );
+
+
+    closeImage.addEventListener(
+      "click",
+      () => {
+
+        imageModal.classList
+          .remove("show");
+
+      }
+    );
+
+
+    imageModal.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target ===
+          imageModal
+        ) {
+
+          imageModal.classList
+            .remove("show");
+
+        }
+
+      }
+    );
+
+
+
+    /* ==============================
+       FLOATING HEARTS
+    ============================== */
+
+    const heartsContainer =
+      document.getElementById(
+        "hearts"
+      );
+
+
+    const heartSymbols = [
+
+      "❤️",
+      "💕",
+      "💗",
+      "💖",
+      "🌸",
+      "✨"
+
+    ];
+
+
+    function createHeart() {
+
+      const heart =
+        document.createElement(
+          "div"
+        );
+
+
+      heart.className =
+        "heart";
+
+
+      heart.textContent =
+        heartSymbols[
+          Math.floor(
+            Math.random() *
+            heartSymbols.length
+          )
+        ];
+
+
+      heart.style.left =
+        Math.random() * 100 +
+        "%";
+
+
+      heart.style.fontSize =
+        (
+          12 +
+          Math.random() * 22
+        ) +
+        "px";
+
+
+      heart.style.animationDuration =
+        (
+          5 +
+          Math.random() * 6
+        ) +
+        "s";
+
+
+      heartsContainer.appendChild(
+        heart
+      );
+
+
+      setTimeout(
+        () => {
+
+          heart.remove();
+
+        },
+        12000
+      );
+
+    }
+
+
+    setInterval(
+      createHeart,
+      700
+    );
+
+
+    for (
+      let i = 0;
+      i < 12;
+      i++
+    ) {
+
+      setTimeout(
+        createHeart,
+        i * 300
+      );
+
+    }
+
+
+
+    /* ==============================
+       ESCAPE KEY
+    ============================== */
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key ===
+          "Escape"
+        ) {
+
+          letterModal.classList
+            .remove("show");
+
+          imageModal.classList
+            .remove("show");
+
+        }
+
+      }
+    );
+
+  </script>
 
 </body>
-
 </html>
